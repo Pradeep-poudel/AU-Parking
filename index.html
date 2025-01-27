@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AU Parking Authentication</title>
+    <link rel="stylesheet" href='LoginStyle.css'>
+</head>
+<body>
+
+    <div class="glass-container"> 
+        <div class="login-box">
+            <img src="Image/Logo.jpg" alt="Logo" class="Logo";>
+            <h2>AU Parking Authentication</h2>
+            <form action="#" method="POST">
+                <input type="password" id="password" name="password" required placeholder="Password">
+                <button type="button" onclick="login()">Verify</button>
+            </form>
+            <p id="error-message" style="color: darkred; margin-bottom: 10px; margin-left: 65px;"></p>
+        </div>
+    </div>
+    <script>
+        function login() {
+            let password=document.getElementById("password").value;
+            let a_password="1234";
+            let errorMessage = document.getElementById("error-message");
+            if(password == a_password){
+                window.location.href="2_MemberInfo.html";
+            } else {
+                errorMessage.textContent = "Incorrect Password.";    
+            }
+        }
+        document.getElementById("password").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                login();
+            }
+        });
+    </script>
+</body>
+</html>
