@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AU Parking Subscription</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Trebuchet MS';
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(Image/BG.jpeg); 
+      background-size: cover;
+      background-position: center;
+      font-size: 19px;
+    }
+
+    .Logo {
+      border-radius: 50%;
+      width: auto;
+      height: 175px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .glass-container {
+      width: 320px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.967);
+      box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      border: 1px solid #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .Logo {
+      border-radius: 50%;
+      height: 120px;
+      margin-bottom: 10px;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    .user-info {
+      margin-bottom: 20px;
+      color: darkred;
+    }
+
+    .user-info img {
+      border: 3px solid darkred;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      margin-top: 10px;
+    }
+
+    .car-info img {
+      width: 200px;
+      height: auto;
+      border: 2px solid darkred;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .details {
+      font-size: 18px;
+      color: black;
+      margin: 10px 0;
+    }
+
+    button {
+      width: 80%;
+      background: darkred;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: white;
+      color: darkred;
+      outline: 1px solid darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass-container">
+    <img src="Image/AU_Logo.jpg" alt="Logo" class="Logo";>
+    <h2 style="color: darkred;">AU Parking Subscription</h2>
+    <h3 style="color: darkred;">Member Information</h3>
+
+    <div class="user-info">
+      <img src="Image/6710999_Profile.jpeg" alt="User Picture" class="user-picture">
+      <div class="details">
+        <p><strong>Member Name:</strong> Saran Fuchs</p>
+        <p><strong>Student ID:</strong> 6710999</p>
+      </div>
+    </div>
+
+    <div class="car-info">
+      <img src="Image/6710999_Car.jpg" alt="Car Picture" class="car-picture">
+      <div class="details">
+        <p><strong>Plate Number:</strong></p>
+        <p>6ดห-6078</p>
+        <p><strong>Membership Expiry Date:</strong></p>
+        <p>31-05-2025</p>
+      </div>
+    </div>
+    <button type="button" onclick="payment()">Renew Membership</button>
+    <button type="button" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function payment(){
+      window.location.href = "1.2_Member_Payment.html"
+    }
+    function logout() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
