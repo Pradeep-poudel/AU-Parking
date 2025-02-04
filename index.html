@@ -4,32 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AU Parking Authentication</title>
-    <link rel="stylesheet" href='LoginStyle.css'>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Trebuchet MS';
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(Image/BG.jpeg); 
+            background-size: cover;
+            background-position: center;
+            font-size: 19px;
+        }
+
+        .Logo {
+            border-radius: 50%;
+            width: auto;
+            height: 175px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .glass-container {
+            width: 320px;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.967);
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: darkred;
+            text-align: center;
+        }
+
+        select, input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 15px;
+            background: transparent;
+            color: black;
+        }
+
+        button {
+            width: 90%;
+            background: darkred;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: white;
+            color: darkred;
+            outline: 1px solid darkred;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
     <div class="glass-container"> 
         <div class="login-box">
-            <img src="Image/Logo.jpg" alt="Logo" class="Logo";>
+            <img src="Image/AU_Logo.jpg" alt="Logo" class="Logo";>
             <h2>AU Parking Authentication</h2>
+
+            <!-- Role selection -->
+            <select id="user-role">
+                <option value="">Select Role</option>
+                <option value="member">Member</option>
+                <option value="staff">Staff</option>
+            </select>
+
             <form action="#" method="POST">
                 <input type="password" id="password" name="password" required placeholder="Password">
                 <button type="button" onclick="login()">Verify</button>
             </form>
-            <p id="error-message" style="color: darkred; margin-bottom: 10px; margin-left: 65px;"></p>
+
+            <p id="error-message" style="color: darkred; margin-bottom: 10px; text-align: center;"></p>
         </div>
     </div>
+
     <script>
         function login() {
-            let password=document.getElementById("password").value;
-            let a_password="1234";
+            let password = document.getElementById("password").value;
+            let role = document.getElementById("user-role").value;
             let errorMessage = document.getElementById("error-message");
-            if(password == a_password){
-                window.location.href="2_MemberInfo.html";
+
+            let memberPassword = "member";
+            let staffPassword = "1969";
+
+            if (role === "staff" && password === staffPassword) {
+                window.location.href = "2_Staff_MemberInfo.html"; 
+            } else if (role === "member" && password === memberPassword) {
+                window.location.href = "1.1_Member_MemberInfo.html"; 
             } else {
-                errorMessage.textContent = "Incorrect Password.";    
+                errorMessage.textContent = "Incorrect Password or Role.";
             }
         }
+
+        // Allow pressing 'Enter' to submit
         document.getElementById("password").addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 event.preventDefault();
@@ -37,5 +134,6 @@
             }
         });
     </script>
+
 </body>
 </html>
